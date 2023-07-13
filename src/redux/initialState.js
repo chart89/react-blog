@@ -2,7 +2,7 @@ const initialState = {
     posts: [
         {
             id: '1',
-            title: 'Article title I',
+            title: 'HALO Wars II',
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
             publishedDate: '02-02-2022',
@@ -10,7 +10,7 @@ const initialState = {
         },
         {
             id: '2',
-            title: 'Article title II',
+            title: 'HALO 5: Guardians',
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
             publishedDate: '02-02-2022',
@@ -18,7 +18,7 @@ const initialState = {
         },
         {
             id: '3',
-            title: 'Article title III',
+            title: 'HALO: Infinite',
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
             publishedDate: '02-02-2022',

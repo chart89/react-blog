@@ -1,10 +1,88 @@
+import { useParams, Navigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import { getPostById } from '../../redux/postsRedux';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Nav from 'react-bootstrap/Nav';
+import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+
 const SinglePost = () => {
 
+    const { id } = useParams();
+    const postData = useSelector(state => getPostById(state, id));
+
+
+    if(!postData) return <Navigate to="/" />
     return (
-        <div>
-            <h1>Single Post</h1>
-        </div>
+        <Container style={{ width: '900px' }}>
+            <Row>
+                <Col sm={9}>
+                    <Card className="mx-auto border-0">
+                        <Card.Body>
+                            <Card.Title className="mb-3"><span className="fw-bold fs-2">{postData.title}</span></Card.Title>
+                            <Card.Subtitle className="mb-2"><span className="fw-bold">Author:</span> <span className="text-muted">{postData.author}</span></Card.Subtitle>
+                            <Card.Subtitle className="mb-2"><span className="fw-bold">Published:</span> <span className="text-muted">{postData.publishedDate}</span></Card.Subtitle>
+                            <Card.Text>
+                                {postData.shortDescription}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col sm={3}>
+                    <Nav className="justify-content-end">
+                    <Nav.Item>
+                        <Nav.Link className="pe-0" as={NavLink} to="/post/edit/:id"><Button variant="outline-info">Edit</Button>{' '}</Nav.Link>
+                    </Nav.Item>  
+                    <Nav.Item>  
+                        <Nav.Link className="pe-0" as={NavLink} to="/post/edit/:id"><Button variant="outline-danger">Delete</Button>{' '}</Nav.Link>
+                    </Nav.Item>
+                    </Nav>
+    
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
 export default SinglePost;
+
+/*
+import styles from './List.module.scss';
+import Column from './../Column/Column';
+import ColumnForm from './../ColumnForm/ColumnForm';
+import { useSelector } from 'react-redux';
+import { getListById  } from '../../redux/listsRedux';
+import { getColumnsByList } from '../../redux/columnsRedux';
+import { useParams, Navigate } from 'react-router';
+import SearchForm from '../SearchForm/SearchForm';
+
+
+
+const List = () => {
+   
+	const { listId } = useParams();
+	const columns = useSelector(state => getColumnsByList(state, listId));
+	const listData = useSelector(state => getListById(state, listId));
+	
+	if(!listData) return <Navigate to="/" />
+	return (
+		<div className={styles.list}>
+			<header className={styles.header}>
+				<h2 className={styles.title}>{listData.title}</h2>
+			</header>
+			<p className={styles.description}>{listData.description}</p>
+			<SearchForm />
+			<section className={styles.columns}>
+                {columns.map(column => <Column key={column.id} {...column} />)}
+			</section>
+			<ColumnForm listId={listId} />
+		</div>
+	);
+};
+
+
+export default List;
+*/
