@@ -2,7 +2,7 @@ const Add = () => {
 
     return (
         <div>
-            Add
+            <h1>Add</h1>
         </div>
     );
 }

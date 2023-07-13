@@ -2,7 +2,7 @@ const Edit = () => {
 
     return (
         <div>
-            Edit post
+            <h1>Edit post</h1>
         </div>
     );
 }

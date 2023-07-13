@@ -1,8 +1,10 @@
+import ShowPosts from "../features/ShowPosts/ShowPosts";
+
 const Home = () => {
 
     return (
         <>
-            Home
+            <ShowPosts />
         </>
     );
 }

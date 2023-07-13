@@ -5,19 +5,24 @@ import About from "./components/pages/About";
 import Add from "./components/pages/Add";
 import SinglePost from "./components/pages/SinglePost";
 import Edit from "./components/pages/Edit";
+import { Container } from 'react-bootstrap'
+import Footer from "./components/views/Footer";
+import Header from "./components/views/Header";
 
 function App() {
   return (
-  
-    <Routes>
+    <Container className="justify-content-center ">
+      <Header />
+      <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/post/add" element={<Add />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="/post/edit/:id" element={<Edit />} />
-    </Routes>
-  
+      </Routes>
+      <Footer />
+    </Container>
   );
 }
 
