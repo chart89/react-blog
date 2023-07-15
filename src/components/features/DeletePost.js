@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useDispatch } from 'react-redux';
+import { removePost } from '../../redux/postsRedux';
 
-const DeletePost = () => {
+const DeletePost = ({ id }) => {
+
+    const dispatch = useDispatch();
 
     const [show, setShow] = useState(false);
 
@@ -11,7 +15,7 @@ const DeletePost = () => {
 
     const handleRemove = () => {
         handleClose();
-        console.log('tak');
+        dispatch(removePost(id));
     };
 
   return (
@@ -29,7 +33,7 @@ const DeletePost = () => {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleRemove}>
+          <Button variant="primary" onClick={() => handleRemove()}>
             Remove
           </Button>
         </Modal.Footer>

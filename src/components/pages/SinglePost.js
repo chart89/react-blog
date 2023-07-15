@@ -36,7 +36,7 @@ const SinglePost = () => {
                     <Nav>
                         <Nav.Link className="pe-0" as={NavLink} to="/post/edit/:id"><Button variant="outline-info">Edit</Button>{' '}</Nav.Link>
                         <Nav.Link>
-                            <DeletePost />
+                            <DeletePost id={id} />
                         </Nav.Link>
                     </Nav>
                 </Col>
