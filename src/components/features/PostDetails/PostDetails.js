@@ -8,7 +8,7 @@ const PostDetails = ({title, author, published, description, id}) => {
 
     return (
         
-        <Col xs={12} md={6} lg={4}>
+        <Col xs={12} md={6} lg={4} className="my-2">
             <Card className="mx-auto" style={{ width: '100%' }}>
                 <Card.Body>
                     <Card.Title><span className="fw-bold">Title: </span>{title}</Card.Title>

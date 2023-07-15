@@ -1,9 +1,17 @@
+import AddPostForm from "../features/AddPostForm/AddPostForm";
+
+
 const Add = () => {
 
     return (
+        <>
         <div>
-            <h1>Add</h1>
+            <h1>Add post</h1>
         </div>
+        <div>
+            <AddPostForm />
+        </div>
+        </>
     );
 }
 

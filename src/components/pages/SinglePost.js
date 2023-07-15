@@ -29,6 +29,9 @@ const SinglePost = () => {
                             <Card.Text>
                                 {postData.shortDescription}
                             </Card.Text>
+                            <Card.Text>
+                                {postData.content}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                 </Col>
