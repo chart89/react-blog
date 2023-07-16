@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { addPost } from '../../../redux/postsRedux';
 import { useNavigate } from "react-router-dom";
+import styles from './AddPostForm.module.scss';
 
 const AddPostForm = () => {
 
@@ -30,15 +31,15 @@ const AddPostForm = () => {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Label>Title</Form.Label>
-        <Form.Control type="text" placeholder="Enter title" value={title} onChange={e => setTitle(e.target.value)} />
+        <Form.Control className={styles.input} type="text" placeholder="Enter title" value={title} onChange={e => setTitle(e.target.value)} />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Author</Form.Label>
-        <Form.Control type="text" placeholder="Enter author" value={author} onChange={e => setAuthor(e.target.value)} />
+        <Form.Control className={styles.input} type="text" placeholder="Enter author" value={author} onChange={e => setAuthor(e.target.value)} />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Published</Form.Label>
-        <Form.Control type="date" placeholder="Enter date published" value={publishedDate} onChange={e => setPublishedDate(e.target.value)} />
+        <Form.Control className={styles.input} type="date" placeholder="Enter date published" value={publishedDate} onChange={e => setPublishedDate(e.target.value)} />
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Label>Short description</Form.Label>

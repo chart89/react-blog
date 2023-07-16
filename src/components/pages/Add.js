@@ -1,4 +1,5 @@
 import AddPostForm from "../features/AddPostForm/AddPostForm";
+import styles from "../features/AddPostForm/AddPostForm.module.scss"
 
 
 const Add = () => {
@@ -8,7 +9,7 @@ const Add = () => {
         <div>
             <h1>Add post</h1>
         </div>
-        <div>
+        <div className={styles.form}>
             <AddPostForm />
         </div>
         </>
