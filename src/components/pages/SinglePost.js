@@ -37,7 +37,7 @@ const SinglePost = () => {
                 </Col>
                 <Col sm={3}>
                     <Nav>
-                        <Nav.Link className="pe-0" as={NavLink} to="/post/edit/:id"><Button variant="outline-info">Edit</Button>{' '}</Nav.Link>
+                        <Nav.Link className="pe-0" as={NavLink} to={'/post/edit/' + postData.id}><Button variant="outline-info">Edit</Button>{' '}</Nav.Link>
                         <Nav.Link>
                             <DeletePost id={id} />
                         </Nav.Link>
