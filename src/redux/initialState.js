@@ -5,7 +5,7 @@ const initialState = {
             title: 'HALO Wars II',
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
-            publishedDate: '02-02-2022',
+            publishedDate: new Date('07-02-2022'),
             author: 'John Doe'
         },
         {
@@ -13,7 +13,7 @@ const initialState = {
             title: 'HALO 5: Guardians',
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
-            publishedDate: '02-02-2022',
+            publishedDate: new Date('02-02-2022'),
             author: 'John Does'
         },
         {
@@ -21,7 +21,7 @@ const initialState = {
             title: 'HALO: Infinite',
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
-            publishedDate: '02-02-2022',
+            publishedDate: new Date('02-02-2022'),
             author: 'John Doesen'
         }
     ],

@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import DeletePost from '../features/DeletePost';
+import dateToStr from '../../utils/dateToStr';
 
 const SinglePost = () => {
 
@@ -25,12 +26,12 @@ const SinglePost = () => {
                         <Card.Body>
                             <Card.Title className="mb-3"><span className="fw-bold fs-2">{postData.title}</span></Card.Title>
                             <Card.Subtitle className="mb-2"><span className="fw-bold">Author:</span> <span className="text-muted">{postData.author}</span></Card.Subtitle>
-                            <Card.Subtitle className="mb-2"><span className="fw-bold">Published:</span> <span className="text-muted">{postData.publishedDate}</span></Card.Subtitle>
+                            <Card.Subtitle className="mb-2"><span className="fw-bold">Published:</span> <span className="text-muted">{dateToStr(postData.publishedDate)}</span></Card.Subtitle>
                             <Card.Text>
                                 {postData.shortDescription}
                             </Card.Text>
                             <Card.Text>
-                                {postData.content}
+                            <p dangerouslySetInnerHTML={{ __html: postData.content }} />
                             </Card.Text>
                         </Card.Body>
                     </Card>

@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import dateToStr from '../../../utils/dateToStr';
 
 const PostDetails = ({title, author, published, description, id}) => {
 
@@ -13,7 +14,7 @@ const PostDetails = ({title, author, published, description, id}) => {
                 <Card.Body>
                     <Card.Title><span className="fw-bold">Title: </span>{title}</Card.Title>
                     <Card.Subtitle className="mb-2"><span className="fw-bold">Author:</span> <span className="text-muted">{author}</span></Card.Subtitle>
-                    <Card.Subtitle className="mb-2"><span className="fw-bold">Published:</span> <span className="text-muted">{published}</span></Card.Subtitle>
+                    <Card.Subtitle className="mb-2"><span className="fw-bold">Published:</span> <span className="text-muted">{dateToStr(published)}</span></Card.Subtitle>
                     <Card.Text>
                         {description}
                     </Card.Text>
