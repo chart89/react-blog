@@ -30,9 +30,9 @@ const SinglePost = () => {
                             <Card.Text>
                                 {postData.shortDescription}
                             </Card.Text>
-                            <Card.Text>
+                            <Card.Subtitle>
                             <p dangerouslySetInnerHTML={{ __html: postData.content }} />
-                            </Card.Text>
+                            </Card.Subtitle>
                         </Card.Body>
                     </Card>
                 </Col>
