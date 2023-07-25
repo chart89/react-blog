@@ -9,6 +9,7 @@ import { Container } from 'react-bootstrap'
 import Footer from "./components/views/Footer";
 import Header from "./components/views/Header";
 import Categories from "./components/views/Categories";
+import CatSelected from "./components/pages/CatSelected";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="/post/edit/:id" element={<Edit />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:categoryName" element={<CatSelected />} />
       </Routes>
       <Footer />
     </Container>
