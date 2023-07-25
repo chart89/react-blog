@@ -27,6 +27,7 @@ const SinglePost = () => {
                             <Card.Title className="mb-3"><span className="fw-bold fs-2">{postData.title}</span></Card.Title>
                             <Card.Subtitle className="mb-2"><span className="fw-bold">Author:</span> <span className="text-muted">{postData.author}</span></Card.Subtitle>
                             <Card.Subtitle className="mb-2"><span className="fw-bold">Published:</span> <span className="text-muted">{dateToStr(postData.publishedDate)}</span></Card.Subtitle>
+                            <Card.Subtitle className="mb-2"><span className="fw-bold">Category:</span> <span className="text-muted">{postData.categoryName}</span></Card.Subtitle>
                             <Card.Text>
                                 {postData.shortDescription}
                             </Card.Text>

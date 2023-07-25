@@ -14,6 +14,7 @@ const NavBar = () => {
             </div>
             <div className={styles.navbar_rh}>
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to="/">Home</NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to="/categories">Categories</NavLink>
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to="/about">About</NavLink>
             </div>
         </Navbar>

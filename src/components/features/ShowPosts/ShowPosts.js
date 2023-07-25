@@ -26,7 +26,7 @@ const ShowPosts = () => {
             </Container>
             <Container>
                 <Row>
-                    {posts.map(post => <PostDetails key={post.id} id={post.id} author={post.author} title={post.title} published={post.publishedDate} description={post.shortDescription}/>)}
+                    {posts.map(post => <PostDetails key={post.id} id={post.id} author={post.author} title={post.title} published={post.publishedDate} description={post.shortDescription} category={post.categoryName}/>)}
                 </Row>
             </Container>
         </div>

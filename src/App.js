@@ -8,6 +8,7 @@ import Edit from "./components/pages/Edit";
 import { Container } from 'react-bootstrap'
 import Footer from "./components/views/Footer";
 import Header from "./components/views/Header";
+import Categories from "./components/views/Categories";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="/post/edit/:id" element={<Edit />} />
+          <Route path="/categories" element={<Categories />} />
       </Routes>
       <Footer />
     </Container>

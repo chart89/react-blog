@@ -9,7 +9,7 @@ const AddPostForm = () => {
     const navigate = useNavigate();
     
 
-    const handleSubmit = post => {
+    const handleSubmit = (post, postcat) => {
 
         dispatch(addPost(post));
         

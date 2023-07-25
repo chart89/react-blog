@@ -8,6 +8,9 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { getAllCategory } from '../../redux/categoryRedux';
+import { useSelector } from 'react-redux';
+import ShowCategory from './ShowCategory';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -18,14 +21,16 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [content, setContent] = useState(props.content || '');
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
+    const [categoryName, setCategory] = useState(props.categoryName || '');
   
     const { register, handleSubmit: validate, formState: { errors } } = useForm();
+    const categories = useSelector(getAllCategory);
 
     const handleSubmit = e => {
         setContentError(!content);
         setDateError(!publishedDate);
         if(content && publishedDate){
-          action({ title, author, shortDescription, publishedDate, content });
+          action({ title, author, shortDescription, publishedDate, content, categoryName });
         }
       };
 
@@ -42,6 +47,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             />
           {errors.title && <small className="d-block form-text text-danger mt-2">This field is required (min 3)</small>}
           </Form.Group>
+
           <Form.Group className="mb-3">
             <Form.Label>Author</Form.Label>
             <Form.Control className={styles.input}
@@ -52,11 +58,21 @@ const PostForm = ({ action, actionText, ...props }) => {
             onChange={e => setAuthor(e.target.value)} />
           {errors.author && <small className="d-block form-text text-danger mt-2">This field is required (min 3)</small>}
           </Form.Group>
+
           <Form.Group className="mb-0">
             <Form.Label>Published</Form.Label>
           </Form.Group>
           <DatePicker className="mb-3" selected={publishedDate} onChange={(data) => setPublishedDate(data)} />
           {dateError && <small className="d-block form-text text-danger mt-0 mb-3">Date can't be empty</small>}
+
+          <Form.Group className="mb-3">
+            <Form.Label>Category</Form.Label>
+            <Form.Select className={styles.input} aria-label="Categories" onChange={e => setCategory(e.target.value)}>
+              <option>Select category</option>
+              {categories.map(cat => <ShowCategory categoryName={cat.categoryName} />)};
+            </Form.Select>     
+          </Form.Group>
+
           <Form.Group className="mb-3" >
             <Form.Label>Short description</Form.Label>
             <Form.Control 
@@ -68,11 +84,13 @@ const PostForm = ({ action, actionText, ...props }) => {
             onChange={e => setShortDescription(e.target.value)} />
           {errors.shortDescription && <small className="d-block form-text text-danger mt-2">This field is required (min 20)</small>}
           </Form.Group>
+
           <Form.Group className="mb-3" >
             <Form.Label>Main content</Form.Label>
             <ReactQuill theme="snow" placeholder="Leave a coment here" value={content} onChange={setContent} />
             {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
           </Form.Group>
+
           <Button variant="primary" type="submit">
             {actionText}
           </Button>
