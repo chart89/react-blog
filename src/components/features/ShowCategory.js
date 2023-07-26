@@ -1,7 +1,7 @@
 const ShowCategory = ({categoryName}) => {
 
     return (
-        <option value={categoryName}>{categoryName}</option>
+        <option  value={categoryName}>{categoryName}</option>
     )
 }
 

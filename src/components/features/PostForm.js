@@ -22,6 +22,7 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
     const [categoryName, setCategory] = useState(props.categoryName || '');
+    const [catError, setCatError] = useState(false);
   
     const { register, handleSubmit: validate, formState: { errors } } = useForm();
     const categories = useSelector(getAllCategory);
@@ -29,7 +30,8 @@ const PostForm = ({ action, actionText, ...props }) => {
     const handleSubmit = e => {
         setContentError(!content);
         setDateError(!publishedDate);
-        if(content && publishedDate){
+        setCatError(!categoryName);
+        if(content && publishedDate && categoryName){
           action({ title, author, shortDescription, publishedDate, content, categoryName });
         }
       };
@@ -70,7 +72,8 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Select className={styles.input} aria-label="Categories" onChange={e => setCategory(e.target.value)}>
               <option>Select category</option>
               {categories.map(cat => <ShowCategory categoryName={cat.categoryName} />)};
-            </Form.Select>     
+            </Form.Select>  
+            {catError && <small className="d-block form-text text-danger mt-0 mb-3">Category can't be empty</small>}   
           </Form.Group>
 
           <Form.Group className="mb-3" >

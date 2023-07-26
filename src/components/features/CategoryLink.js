@@ -7,7 +7,7 @@ const CategoryLink = ({categoryName}) => {
 
     return (
         <ListGroup.Item>
-            <Nav.Link className="pe-0" as={NavLink} to={'/categories/:categoryName'}>{categoryName}</Nav.Link>
+            <Nav.Link className="pe-0" as={NavLink} to={'/categories/'+categoryName}>{categoryName}</Nav.Link>
         </ListGroup.Item>
     )
 }

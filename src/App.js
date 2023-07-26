@@ -8,7 +8,7 @@ import Edit from "./components/pages/Edit";
 import { Container } from 'react-bootstrap'
 import Footer from "./components/views/Footer";
 import Header from "./components/views/Header";
-import Categories from "./components/views/Categories";
+import Categories from "./components/pages/Categories";
 import CatSelected from "./components/pages/CatSelected";
 
 function App() {
